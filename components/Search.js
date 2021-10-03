@@ -1,7 +1,8 @@
 import React from "react";
-import {Text, View, StyleSheet, TextInput} from 'react-native'
+import {Text, View, StyleSheet, TextInput, Button} from 'react-native'
+import {StackNavigationState} from "@react-navigation/native";
 
-export  default class About extends React.Component {
+export  default class Search extends React.Component {
 
     constructor(props) {
         super(props);
@@ -15,18 +16,23 @@ export  default class About extends React.Component {
         })
     }
 
+
     render() {
         return (
             <View style={style.view}>
                 <Text style={style.title}>Acceuil</Text>
-                <Text>lorem marche pas</Text>
+                <Text>Rechercher la méteo de votre ville</Text>
                 <View  style={style.load}>
                     <TextInput style={style.input} value={this.state.city} onChangeText={(text) => this.setCity(text)}/>
+                    <View style={style.buttonSearch}>
+                    <Button color={'tomato'} onPress={() => this.search()} title="Rechercher"/>
+                    </View>
                 </View>
             </View>
         )
     }
 }
+
 
 const style = StyleSheet.create({
     title: {
@@ -40,5 +46,13 @@ const style = StyleSheet.create({
         borderColor: 'grey',
         borderWidth: 2,
         borderRadius: 4,
+        margin: 20,
+        marginBottom:10,
+        padding:10,
     },
+    buttonSearch: {
+        margin: 10,
+        paddingLeft:150,
+        paddingRight:150,
+    }
 })
